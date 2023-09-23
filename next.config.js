@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+    domains: ["i.scdn.co"],
   },
 }
 

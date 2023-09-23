@@ -15,6 +15,7 @@ import {
 
 import { Album } from "../data/albums"
 import { playlists } from "../data/playlists"
+import Link from "next/link"
 
 interface AlbumArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
   album: Album
@@ -36,16 +37,18 @@ export function AlbumArtwork({
       <ContextMenu>
         <ContextMenuTrigger>
           <div className="overflow-hidden rounded-md">
-            <Image
-              src={album.cover}
-              alt={album.name}
-              width={width}
-              height={height}
-              className={cn(
-                "h-auto w-auto object-cover transition-all hover:scale-105",
-                aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-              )}
-            />
+            <Link href={album.url} target="_blank">
+              <Image
+                src={album.cover}
+                alt={album.name}
+                width={width}
+                height={height}
+                className={cn(
+                  "h-auto w-auto object-cover transition-all hover:scale-105",
+                  aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+                )}
+              />
+            </Link>
           </div>
         </ContextMenuTrigger>
         <ContextMenuContent className="w-40">

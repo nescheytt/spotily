@@ -1,4 +1,6 @@
-import { Metadata } from "next"
+"use client"
+
+import { useEffect, useState } from "react"
 import { PlusCircledIcon } from "@radix-ui/react-icons"
 
 import { Button } from "@/components/ui/button"
@@ -10,16 +12,26 @@ import { AlbumArtwork } from "../components/album-artwork"
 import { Menu } from "../components/menu"
 import { PodcastEmptyPlaceholder } from "../components/podcast-empty-placeholder"
 import { Sidebar } from "../components/sidebar"
-import { listenNowAlbums, madeForYouAlbums } from "../data/albums"
+import { Tracks } from "../data/albums"
 import { playlists } from "../data/playlists"
 import { ModeToggle } from "@/components/mode-toggle"
 
-export const metadata: Metadata = {
-  title: "Spotily | Play you f*cking music",
-  description: "Example music app using the components.",
-}
-
 export default function MusicPage() {
+  const [tracks, setTracks] = useState<Tracks>()
+  const [artists, setArtists] = useState<Tracks>()
+
+  useEffect(() => {
+    fetch("api/top-tracks")
+      .then((response) => response.json())
+      .then((response) => setTracks(response))
+      .catch((error) => console.log(error))
+
+    fetch("api/top-artists")
+      .then((response) => response.json())
+      .then((response) => setArtists(response))
+      .catch((error) => console.log(error))
+  }, [])
+
   return (
     <div className="hidden md:block">
       <div className="flex items-center justify-between p-6">
@@ -58,10 +70,10 @@ export default function MusicPage() {
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <h2 className="text-2xl font-semibold tracking-tight">
-                          Listen Now
+                          Top Artists
                         </h2>
                         <p className="text-sm text-muted-foreground">
-                          Top picks for you. Updated daily.
+                          Your top personal artists of this week.
                         </p>
                       </div>
                     </div>
@@ -69,14 +81,14 @@ export default function MusicPage() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {listenNowAlbums.map((album) => (
+                          {artists?.tracks.map((album) => (
                             <AlbumArtwork
                               key={album.name}
                               album={album}
-                              className="w-[250px]"
-                              aspectRatio="portrait"
-                              width={250}
-                              height={330}
+                              className="w-[150px]"
+                              aspectRatio="square"
+                              width={150}
+                              height={150}
                             />
                           ))}
                         </div>
@@ -85,24 +97,24 @@ export default function MusicPage() {
                     </div>
                     <div className="mt-6 space-y-1">
                       <h2 className="text-2xl font-semibold tracking-tight">
-                        Made for You
+                        Top Tracks
                       </h2>
                       <p className="text-sm text-muted-foreground">
-                        Your personal playlists. Updated daily.
+                        Your top 10 tracks of this week.
                       </p>
                     </div>
                     <Separator className="my-4" />
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {madeForYouAlbums.map((album) => (
+                          {tracks?.tracks.map((album: any) => (
                             <AlbumArtwork
                               key={album.name}
                               album={album}
                               className="w-[150px]"
-                              aspectRatio="square"
-                              width={150}
-                              height={150}
+                              aspectRatio="portrait"
+                              width={250}
+                              height={330}
                             />
                           ))}
                         </div>
@@ -132,7 +144,6 @@ export default function MusicPage() {
             </div>
           </div>
         </div>
-        toToMode
       </div>
     </div>
   )
