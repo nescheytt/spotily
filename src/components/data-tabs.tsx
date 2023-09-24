@@ -51,8 +51,8 @@ export function DataTabs() {
 
         <div className="relative">
           <ScrollArea>
-            <div className="flex space-x-4 pb-4 ">
-              {artists?.tracks.map((album: Album) => (
+            <div className="flex space-x-4 pb-4">
+              {artists?.map((album: Album) => (
                 <AlbumArtwork
                   key={album.name}
                   album={album}
@@ -78,7 +78,7 @@ export function DataTabs() {
         <div className="relative">
           <ScrollArea>
             <div className="flex space-x-4 pb-4">
-              {tracks?.tracks.map((album: Album) => (
+              {tracks?.map((album: Album) => (
                 <AlbumArtwork
                   key={album.name}
                   album={album}
