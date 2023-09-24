@@ -18,8 +18,6 @@ Visit us at:
 
 If you liked this template or it has helped you in any way, I'd like you send me an email at <nahuel.scheytt@gmail.com> about anything you'd want to say about. I'd really appreciate it
 
-# Comments
-
 > [nahuelscheytt.com](https://www.nahuelscheytt.com) &nbsp;&middot;&nbsp;
 > GitHub [@nescheytt](https://github.com/nescheytt) &nbsp;&middot;&nbsp;
 > LinkedIn [@nahuel-scheytt](https://www.linkedin.com/in/nahuel-scheytt/) &nbsp;&middot;&nbsp;
