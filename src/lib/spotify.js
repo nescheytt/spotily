@@ -28,6 +28,16 @@ export const currentProfile = async () => {
   })
 }
 
+export const following = async () => {
+  const { access_token } = await getAccessToken()
+
+  return fetch("https://api.spotify.com/v1/me/following?type=artist", {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+}
+
 export const topTracks = async () => {
   const { access_token } = await getAccessToken()
 

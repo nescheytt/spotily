@@ -1,4 +1,11 @@
-export type CurrentProfile = {}
+export type CurrentProfile = {
+  name: string
+  url: string
+  cover: string
+  followers: string
+  country: string
+  product: string
+}
 
 export type EndpointCurrentProfile = {
   display_name: string
