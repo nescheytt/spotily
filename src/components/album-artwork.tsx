@@ -43,10 +43,7 @@ export function AlbumArtwork({
                 alt={album.name}
                 width={width}
                 height={height}
-                className={cn(
-                  "h-auto w-auto object-cover transition-all hover:scale-105",
-                  aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-                )}
+                className="aspect-square h-auto w-auto object-cover transition-all hover:scale-105"
               />
             </Link>
           </div>
@@ -90,8 +87,10 @@ export function AlbumArtwork({
         </ContextMenuContent>
       </ContextMenu>
       <div className="space-y-1 text-sm">
-        <h3 className="font-medium leading-none">{album.name}</h3>
-        <p className="text-xs text-muted-foreground">{album.artist}</p>
+        <h3 className="font-medium leading-normal">{album.name}</h3>
+        <p className="text-xs leading-normal text-muted-foreground">
+          {album.artist}
+        </p>
       </div>
     </div>
   )
