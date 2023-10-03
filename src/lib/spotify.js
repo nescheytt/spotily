@@ -18,6 +18,19 @@ const getAccessToken = async () => {
   return response.json()
 }
 
+export const search = async (query) => {
+  const { access_token } = await getAccessToken()
+
+  return fetch(
+    `https://api.spotify.com/v1/search?q=${query}&type=artist%2Calbum%2Ctrack&limit=7`,
+    {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    }
+  )
+}
+
 export const currentProfile = async () => {
   const { access_token } = await getAccessToken()
 
