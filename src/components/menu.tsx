@@ -17,25 +17,25 @@ import {
 
 export function Menu() {
   return (
-    <Menubar className="rounded-none border-b border-none">
+    <Menubar className="border-none shadow-none">
       <MenubarMenu>
-        <MenubarTrigger className="font-bold">Music</MenubarTrigger>
+        <MenubarTrigger className="font-bold">Spotily</MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>About Music</MenubarItem>
+          <MenubarItem>About Spotily</MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
             Preferences... <MenubarShortcut>⌘,</MenubarShortcut>
           </MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
-            Hide Music... <MenubarShortcut>⌘H</MenubarShortcut>
+            Hide Spotily... <MenubarShortcut>⌘H</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
             Hide Others... <MenubarShortcut>⇧⌘H</MenubarShortcut>
           </MenubarItem>
           <MenubarShortcut />
           <MenubarItem>
-            Quit Music <MenubarShortcut>⌘Q</MenubarShortcut>
+            Quit Spotily <MenubarShortcut>⌘Q</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
