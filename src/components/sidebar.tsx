@@ -39,12 +39,22 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 strokeLinejoin="round"
                 className="mr-2 h-4 w-4"
               >
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
+                <rect width="7" height="7" x="3" y="3" rx="1" />
+                <rect width="7" height="7" x="14" y="3" rx="1" />
+                <rect width="7" height="7" x="14" y="14" rx="1" />
+                <rect width="7" height="7" x="3" y="14" rx="1" />
               </svg>
-              Me
+              Search
             </Link>
-            <Button variant="ghost" className="w-full justify-start">
+            <Link
+              href="/profile"
+              className={cn(
+                buttonVariants({
+                  variant: "ghost",
+                }),
+                "w-full justify-start"
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -55,13 +65,11 @@ export function Sidebar({ className, playlists }: SidebarProps) {
                 strokeLinejoin="round"
                 className="mr-2 h-4 w-4"
               >
-                <rect width="7" height="7" x="3" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="14" rx="1" />
-                <rect width="7" height="7" x="3" y="14" rx="1" />
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
               </svg>
-              Browse
-            </Button>
+              Me
+            </Link>
           </div>
         </div>
         <div className="px-3 py-2">
